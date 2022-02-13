@@ -1,7 +1,14 @@
 package main
 
-import "github.com/Jaytpa01/encryption-cli/cmd"
+import (
+	"log"
+
+	"github.com/Jaytpa01/encryption-cli/cmd"
+)
 
 func main() {
-	cmd.Execute()
+	if err := cmd.RootCommand().Execute(); err != nil {
+		log.Fatal(err)
+		return
+	}
 }
